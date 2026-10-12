@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guía informática | Proyecto de Promoción</title>
+<style>
+:root{--primary:#5b4bdb;--pd:#4335ad;--accent:#f59e0b;--ok:#16a34a;--bad:#dc2626;--dark:#1f2937;--gray:#6b7280;--bg:#f5f7ff;--card:#fff;--soft:#f3f1ff;--bd:#e5e7eb;--sh:0 10px 30px rgba(31,41,55,.1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--pd:#b3a8ff;--dark:#e5e7eb;--gray:#a1a7b3;--bg:#12111f;--card:#1c1b2e;--soft:#26243d;--bd:#33314d}}
+:root[data-theme="dark"]{--pd:#b3a8ff;--dark:#e5e7eb;--gray:#a1a7b3;--bg:#12111f;--card:#1c1b2e;--soft:#26243d;--bd:#33314d}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+header{background:var(--card);position:sticky;top:env(safe-area-inset-top,0px);z-index:50;box-shadow:0 3px 15px rgba(0,0,0,.1)}
+.navbar{max-width:1200px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.logo{font-size:1.3rem;font-weight:bold;color:var(--primary);white-space:nowrap}.logo span{color:var(--accent)}
+nav{display:flex;gap:16px;overflow-x:auto;white-space:nowrap}
+nav a{text-decoration:none;color:var(--dark);font-weight:bold;font-size:.9rem}nav a:hover{color:var(--primary)}
+.theme{background:var(--soft);border:1px solid var(--bd);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:1rem}
+.hero{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#5b4bdb,#7c3aed,#4335ad);color:#fff}
+.hero h1{font-size:clamp(2.2rem,6vw,4.2rem);margin-bottom:18px}.hero h1 span{color:#ffd166}
+.hero p{font-size:1.15rem;max-width:700px;margin:auto}
+.hb{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;border:none;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold;cursor:pointer;font-size:.95rem;background:var(--primary);color:#fff}
+.btn:hover{background:var(--pd)}.btn.w{background:#fff;color:var(--primary)}.btn.g{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.5)}
+.btn.o{background:var(--soft);color:var(--pd);border:1px solid var(--bd)}
+section{max-width:1200px;margin:auto;padding:70px 22px}
+.st{text-align:center;margin-bottom:40px}.st h2{font-size:2rem;color:var(--pd);margin-bottom:8px}.st p{color:var(--gray);max-width:750px;margin:auto}
+.g3,.g2{display:grid;gap:22px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card,.step,.box{background:var(--card);padding:26px;border-radius:16px;box-shadow:var(--sh);border:1px solid var(--bd)}
+.card h3,.step h3,.box h3{color:var(--pd);margin-bottom:10px}.card p,.step p,.card li{color:var(--gray)}
+.card ul{padding-left:18px}.ic{font-size:2.2rem;margin-bottom:10px}
+.step{border-left:6px solid var(--primary);position:relative}.step h3{padding-right:44px}
+.n{position:absolute;top:16px;right:18px;width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold}
+.ex{background:var(--soft);border-radius:10px;padding:11px;font-size:.9rem;margin-top:10px}.ex strong{color:var(--pd)}
+.scroll{overflow-x:auto;background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:14px}
+table{width:100%;border-collapse:collapse;min-width:520px}th,td{padding:12px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:middle}
+th{background:var(--primary);color:#fff}
+.pill{display:inline-block;background:var(--soft);color:var(--pd);border-radius:20px;padding:6px 14px;margin:4px;font-weight:bold;font-size:.9rem}
+.proj{background:var(--soft);padding:32px;border-radius:20px;box-shadow:var(--sh)}.proj h3{color:var(--pd);font-size:1.5rem;margin-bottom:16px}
+.proj h4{color:var(--primary);margin:14px 0 4px}.proj ul{padding-left:20px}
+.chk{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd)}.chk input{width:18px;height:18px}
+.pb{height:14px;background:var(--bd);border-radius:20px;overflow:hidden;margin:8px 0 18px}.pb div{height:100%;width:0;background:var(--ok);transition:width .4s}
+.pi{display:flex;justify-content:space-between;font-weight:bold}
+label{display:block;font-weight:bold;margin:12px 0 6px}
+input,textarea,select{width:100%;padding:10px;border:1px solid var(--bd);border-radius:9px;font-size:1rem;background:var(--card);color:var(--dark);font-family:inherit}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--primary)}
+textarea{resize:vertical;min-height:80px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+#res{margin-top:22px;padding:18px;border-radius:12px;background:var(--soft);display:none}#res h4{color:var(--pd);margin-bottom:10px}#res p{margin-bottom:10px}
+.x{background:none;border:none;color:var(--bad);cursor:pointer;font-size:1.1rem}
+.tot{font-size:1.2rem;font-weight:bold;margin-top:14px;color:var(--pd)}
+.foda div{border-radius:12px;padding:12px;background:var(--soft)}.foda label{margin-top:0}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--sh)}
+summary{font-weight:bold;cursor:pointer;color:var(--pd)}details p{margin-top:10px;color:var(--gray)}
+.tip{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--sh)}.tip strong{color:var(--primary)}
+footer{background:#17152b;color:#fff;padding:40px 22px;text-align:center}footer p{color:#c7c5d6}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));display:none;border-radius:50%;width:44px;height:44px;padding:0}
+@media(max-width:850px){.g3,.g2{grid-template-columns:1fr}.logo{font-size:1.05rem}}
+@media print{header,.hero,.row,#top,footer{display:none}section{padding:20px 0}}
+</style>
+</head>
+<body>
+<header><div class="navbar"><div class="logo">Proyecto<span>Promoción</span></div>
+<nav><a href="#que-es">¿Qué es?</a><a href="#pasos">Pasos</a><a href="#metodologia">Metodología</a><a href="#estructura">Estructura</a><a href="#ejemplo">Ejemplo</a><a href="#herramientas">Herramientas</a><a href="#evaluacion">Evaluación</a><a href="#faq">Preguntas</a></nav>
+<button class="theme" id="theme" title="Cambiar tema" aria-label="Cambiar tema">🌓</button></div></header>
+
+<div class="hero" id="inicio"><h1>Aprende a realizar un <span>Proyecto de Promoción</span></h1>
+<p>Guía completa para organizar una promoción escolar: objetivos, metodología, actividades, presupuesto, cronograma y evaluación.</p>
+<div class="hb"><a href="#pasos" class="btn w">Comenzar guía</a><a href="#herramientas" class="btn g">Crear mi proyecto</a></div></div>
+
+<section id="que-es"><div class="st"><h2>¿Qué es un proyecto de promoción?</h2><p>Es una propuesta organizada que permite planificar las actividades de una promoción escolar, estableciendo objetivos, responsables, recursos, fechas y formas de evaluación.</p></div>
+<div class="g3">
+<div class="card"><div class="ic">🎯</div><h3>Organización</h3><p>Ordena las actividades y define qué hacer, cuándo y quién es responsable.</p></div>
+<div class="card"><div class="ic">🤝</div><h3>Trabajo en equipo</h3><p>Distribuye las responsabilidades entre los integrantes de la promoción.</p></div>
+<div class="card"><div class="ic">📅</div><h3>Planificación</h3><p>Establece fechas, actividades y recursos necesarios para cumplir los objetivos.</p></div></div></section>
+
+<section id="pasos"><div class="st"><h2>Pasos para realizar el proyecto</h2><p>Sigue estos pasos desde la idea inicial hasta la evaluación final.</p></div><div class="g2" id="stepsBox"></div></section>
+
+<section id="metodologia"><div class="st"><h2>Metodología de trabajo</h2><p>Un proyecto se desarrolla en cuatro fases. Cada una usa técnicas sencillas que puedes aplicar con tu grupo.</p></div>
+<div class="g2">
+<div class="card"><div class="ic">🔍</div><h3>Fase 1 · Diagnóstico</h3><ul><li>Observar la situación actual del grupo.</li><li>Encuestar a los compañeros.</li><li>Elaborar el árbol de problemas (causas y efectos).</li></ul></div>
+<div class="card"><div class="ic">🧭</div><h3>Fase 2 · Planificación</h3><ul><li>Definir objetivos SMART.</li><li>Listar actividades, recursos y presupuesto.</li><li>Armar el cronograma y asignar responsables.</li></ul></div>
+<div class="card"><div class="ic">🚀</div><h3>Fase 3 · Ejecución</h3><ul><li>Cada responsable cumple su tarea.</li><li>Reunión breve de seguimiento semanal.</li><li>Registrar gastos, cambios y avances.</li></ul></div>
+<div class="card"><div class="ic">📊</div><h3>Fase 4 · Evaluación</h3><ul><li>Medir los indicadores definidos.</li><li>Aplicar una encuesta de satisfacción.</li><li>Redactar el informe final y las mejoras.</li></ul></div></div>
+<div class="card" style="margin-top:22px"><h3>Técnicas útiles</h3>
+<span class="pill">💡 Lluvia de ideas</span><span class="pill">🧩 Análisis FODA</span><span class="pill">🌳 Árbol de problemas</span><span class="pill">📆 Diagrama de Gantt</span><span class="pill">👥 Matriz de responsables</span><span class="pill">🗳️ Votación para decidir</span>
+<h3 style="margin-top:18px">Objetivos SMART</h3>
+<p><strong>S</strong>pecífico (claro) · <strong>M</strong>edible (se puede contar) · <strong>A</strong>lcanzable (posible con los recursos) · <strong>R</strong>elevante (aporta al proyecto) · <strong>T</strong>emporal (tiene fecha).</p>
+<div class="ex"><strong>Ejemplo:</strong> "Realizar 4 reuniones de planificación entre agosto y septiembre, con al menos 80 % de asistencia."</div></div></section>
+
+<section id="estructura"><div class="st"><h2>Estructura del proyecto</h2><p>Esta es una estructura que puedes utilizar para presentar tu proyecto.</p></div>
+<div class="scroll"><table><thead><tr><th>N.º</th><th>Parte</th><th>¿Qué contiene?</th></tr></thead><tbody id="tbody"></tbody></table></div></section>
+
+<section id="ejemplo"><div class="st"><h2>Ejemplo de proyecto</h2><p>Así podrían quedar las principales partes de un proyecto de promoción.</p></div>
+<div class="proj"><h3>Promoción 2026 – Unidos para celebrar</h3>
+<h4>Problema</h4><p>Los integrantes necesitan mejorar la organización y comunicación para realizar las actividades de manera ordenada.</p>
+<h4>Justificación</h4><p>Permitirá trabajar de forma organizada, distribuir responsabilidades y conocer con anticipación las fechas y actividades.</p>
+<h4>Objetivo general</h4><p>Organizar las actividades de la promoción 2026 de manera responsable y coordinada, promoviendo la participación de todos.</p>
+<h4>Objetivos específicos</h4><ul><li>Organizar reuniones de planificación.</li><li>Distribuir responsabilidades.</li><li>Establecer fechas para las actividades.</li><li>Mejorar la comunicación entre los participantes.</li><li>Evaluar los resultados.</li></ul>
+<h4>Actividades</h4><ul><li>Reuniones de organización.</li><li>Actividades deportivas y recreativas.</li><li>Preparación de eventos.</li><li>Evento de cierre.</li></ul>
+<h4>Recursos</h4><p>Decoración, equipos de sonido, espacios escolares, computadoras, carteles y participación de estudiantes y docentes.</p>
+<h4>Presupuesto</h4><p>Decoración: G. 300.000 · Sonido: G. 500.000 · Total aproximado: G. 800.000.</p>
+<h4>Cronograma</h4><p>Agosto: planificación · Septiembre: actividades · Octubre: evento final.</p>
+<h4>Riesgos y plan B</h4><ul><li>Lluvia el día del evento → tener un salón techado reservado.</li><li>Falta de fondos → rifa o venta de comida.</li><li>Baja asistencia → recordatorios por el grupo de mensajería.</li></ul>
+<h4>Indicadores de evaluación</h4><p>80 % de asistencia a reuniones, 100 % de tareas cumplidas en fecha, 85 % de encuestados satisfechos.</p></div></section>
+
+<section id="herramientas"><div class="st"><h2>Herramientas para tu proyecto</h2><p>Tu avance se guarda automáticamente en este navegador.</p></div>
+<div class="g2">
+<div class="box"><h3>✅ Lista de progreso</h3><div class="pi"><span>Progreso</span><span id="pct">0%</span></div><div class="pb"><div id="bar"></div></div><div id="checks"></div></div>
+
+<div class="box"><h3>📝 Generador de estructura</h3>
+<label for="nombre">Nombre del proyecto</label><input id="nombre" placeholder="Ej: Promoción 2026">
+<label for="tema">Tema</label><input id="tema" placeholder="Ej: Actividades de fin de año">
+<label for="dest">¿A quién va dirigido?</label><input id="dest" placeholder="Ej: Alumnos de la promoción">
+<label for="obj">Objetivo principal</label><textarea id="obj" placeholder="Escribe qué quieres lograr..."></textarea>
+<label for="act">Actividades principales</label><textarea id="act" placeholder="Ej: reuniones, torneos, eventos..."></textarea>
+<div class="row"><button class="btn" style="flex:1" id="gen">Generar estructura</button></div>
+<div id="res"></div>
+<div class="row" id="exp" style="display:none"><button class="btn o" id="copy">📋 Copiar texto</button><button class="btn o" id="print">🖨️ Imprimir</button><span id="msg" style="align-self:center;color:var(--ok);font-weight:bold"></span></div></div>
+
+<div class="box"><h3>🧩 Análisis FODA</h3><p style="color:var(--gray)">Detecta qué tienes a favor y qué debes cuidar.</p>
+<div class="g2 foda" style="gap:12px;margin-top:12px">
+<div><label>💪 Fortalezas</label><textarea data-k="f" placeholder="Ej: grupo unido"></textarea></div>
+<div><label>⚠️ Debilidades</label><textarea data-k="d" placeholder="Ej: poco presupuesto"></textarea></div>
+<div><label>🌟 Oportunidades</label><textarea data-k="o" placeholder="Ej: apoyo de la institución"></textarea></div>
+<div><label>⛈️ Amenazas</label><textarea data-k="a" placeholder="Ej: lluvias en la fecha"></textarea></div></div></div>
+
+<div class="box"><h3>💰 Calculadora de presupuesto</h3>
+<div class="scroll" style="padding:0;box-shadow:none"><table style="min-width:340px"><thead><tr><th>Concepto</th><th>Monto (G.)</th><th></th></tr></thead><tbody id="pbody"></tbody></table></div>
+<div class="row"><button class="btn o" id="addp">+ Agregar gasto</button></div>
+<div class="tot" id="ptot"></div>
+<label for="nint">Número de integrantes</label><input type="number" min="1" id="nint" placeholder="Ej: 25"><div class="tot" id="pper"></div></div></div>
+
+<div class="box" style="margin-top:22px"><h3>📆 Cronograma y responsables</h3>
+<div class="scroll" style="padding:0;box-shadow:none"><table style="min-width:620px"><thead><tr><th>Actividad</th><th>Responsable</th><th>Fecha</th><th>Estado</th><th></th></tr></thead><tbody id="tbody2"></tbody></table></div>
+<div class="row"><button class="btn o" id="addt">+ Agregar actividad</button></div><div class="tot" id="ttot"></div></div></section>
+
+<section id="evaluacion"><div class="st"><h2>Evaluación e indicadores</h2><p>Define cómo sabrás si el proyecto funcionó.</p></div>
+<div class="scroll"><table><thead><tr><th>Objetivo</th><th>Indicador</th><th>Meta</th><th>Cómo se mide</th></tr></thead><tbody>
+<tr><td>Organizar reuniones</td><td>Reuniones realizadas</td><td>4 reuniones</td><td>Actas y lista de asistencia</td></tr>
+<tr><td>Distribuir responsabilidades</td><td>Tareas con responsable</td><td>100 %</td><td>Cronograma</td></tr>
+<tr><td>Mejorar la comunicación</td><td>Avisos entregados a tiempo</td><td>90 %</td><td>Encuesta breve</td></tr>
+<tr><td>Realizar el evento final</td><td>Satisfacción de participantes</td><td>85 %</td><td>Encuesta final</td></tr>
+<tr><td>Controlar gastos</td><td>Gasto real vs. presupuesto</td><td>Máx. +10 %</td><td>Registro de gastos</td></tr></tbody></table></div></section>
+
+<section id="faq"><div class="st"><h2>Preguntas frecuentes</h2></div>
+<details><summary>¿Cuál es la diferencia entre objetivo general y específicos?</summary><p>El general es la gran meta; los específicos son los pasos concretos y medibles para lograrla.</p></details>
+<details><summary>¿Cuánto debe durar un proyecto de promoción?</summary><p>Depende de las actividades, pero conviene planificar con varios meses de anticipación y dejar un margen para imprevistos.</p></details>
+<details><summary>¿Cómo reparto las tareas?</summary><p>Asigna un responsable por actividad y un suplente. Usa el cronograma de esta guía para dejarlo por escrito.</p></details>
+<details><summary>¿Qué hago si el presupuesto no alcanza?</summary><p>Prioriza lo esencial, busca aportes o actividades para recaudar fondos y ten un plan B para cada gasto grande.</p></details>
+<details><summary>¿Cómo presento el proyecto?</summary><p>Con la estructura de 13 partes: usa el generador, copia el texto y complétalo en tu documento. También puedes imprimirlo.</p></details></section>
+
+<section style="padding-top:0"><div class="st"><h2>Consejos para un buen proyecto</h2></div><div class="g2" id="tips"></div></section>
+
+<footer><h3>ProyectoPromoción</h3><p>Guía educativa para aprender a planificar y organizar un proyecto de promoción escolar.</p><p style="margin-top:12px">© 2026 - Proyecto educativo</p></footer>
+<button class="btn" id="top" aria-label="Volver arriba">↑</button>
+
+<script>
+const $=id=>document.getElementById(id),Q=s=>document.querySelectorAll(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fm=n=>"G. "+Number(n||0).toLocaleString("es-PY");
+let S={c:[],g:{},f:{},p:[{c:"Decoración",m:300000},{c:"Sonido",m:500000}],t:[],n:""};
+try{Object.assign(S,JSON.parse(localStorage.getItem("pp")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("pp",JSON.stringify(S))}catch(e){}};
+
+const PASOS=[["Elegir la idea o tema","Define qué tipo de proyecto quiere realizar la promoción y su propósito principal.","Organizar actividades para celebrar el cierre del año escolar."],
+["Definir el problema o necesidad","Identifica qué situación necesita ser solucionada o mejorada.","Falta de organización y comunicación entre los integrantes."],
+["Escribir la justificación","Explica por qué el proyecto es importante y qué beneficios tendrá.","Mejorar la comunicación y permitir una mejor organización."],
+["Crear el objetivo general","Escribe qué se quiere lograr de manera general.","Organizar las actividades de la promoción de forma ordenada."],
+["Crear los objetivos específicos","Divide el objetivo general en acciones concretas y alcanzables (SMART).","Organizar eventos, asignar responsables y establecer fechas."],
+["Definir a quién va dirigido","Determina quiénes participarán o serán beneficiados directamente.","Alumnos de la promoción, docentes y comunidad educativa."],
+["Planificar las actividades","Haz una lista de todas las actividades necesarias.","Reuniones, eventos, actividades deportivas y celebración final."],
+["Determinar los recursos","Identifica materiales, espacios, personas y herramientas necesarias.","Salón, sonido, decoración, computadoras y materiales."],
+["Preparar el presupuesto","Calcula cuánto dinero se necesitará. Usa la calculadora de abajo.","Decoración: G. 300.000. Sonido: G. 500.000."],
+["Crear un cronograma","Organiza las actividades según las fechas y sus responsables.","Agosto: planificación. Septiembre: actividades. Octubre: evento final."],
+["Organizar la comunicación","Define cómo se informarán actividades, cambios y avisos.","Grupos de mensajería y carteles informativos."],
+["Evaluar los resultados","Comprueba si se cumplieron los objetivos y qué se puede mejorar.","Realizar una encuesta a los participantes."]];
+$("stepsBox").innerHTML=PASOS.map((p,i)=>`<div class="step"><div class="n">${i+1}</div><h3>${p[0]}</h3><p>${p[1]}</p><div class="ex"><strong>Ejemplo:</strong> ${p[2]}</div></div>`).join("");
+
+const EST=[["Portada","Nombre de la institución, proyecto, integrantes y fecha."],["Introducción","Presentación general del proyecto."],["Problema","Situación que se quiere solucionar o mejorar."],["Justificación","Razones por las que el proyecto es importante."],["Objetivo general","Meta principal del proyecto."],["Objetivos específicos","Acciones concretas para alcanzar la meta."],["Destinatarios","Personas a quienes va dirigido."],["Actividades","Acciones que serán realizadas."],["Recursos","Materiales, personas, espacios y herramientas."],["Presupuesto","Costos aproximados de las actividades."],["Cronograma","Fechas y organización de las actividades."],["Evaluación","Resultados obtenidos y aspectos a mejorar."],["Conclusión","Reflexión final sobre el proyecto."]];
+$("tbody").innerHTML=EST.map((r,i)=>`<tr><td>${i+1}</td><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("");
+
+const TIPS=["Sé claro: usa palabras sencillas y explica las ideas en orden.","Sé realista: plantea actividades posibles con los recursos disponibles.","Trabaja en equipo: distribuye las responsabilidades.","Organiza el tiempo: fija fechas para que nada se acumule al final.","Controla los gastos: haz un presupuesto antes de comenzar.","Evalúa: comprueba al final si se cumplieron los objetivos."];
+$("tips").innerHTML=TIPS.map((t,i)=>{const [a,b]=t.split(": ");return `<div class="tip"><strong>${i+1}. ${a}:</strong> ${b}</div>`}).join("");
+
+/* Checklist */
+const CK=["Elegí el tema del proyecto","Definí el problema","Escribí la justificación","Creé el objetivo general","Creé los objetivos específicos","Definí los destinatarios","Planifiqué las actividades","Definí los recursos","Preparé el presupuesto","Realicé el cronograma","Preparé la evaluación"];
+$("checks").innerHTML=CK.map((t,i)=>`<label class="chk" style="font-weight:normal;margin:0"><input type="checkbox" data-i="${i}" ${S.c[i]?"checked":""}><span>${t}</span></label>`).join("");
+function prog(){const ch=[...Q("#checks input")];const p=Math.round(ch.filter(c=>c.checked).length/ch.length*100);$("pct").textContent=p+"%";$("bar").style.width=p+"%"}
+Q("#checks input").forEach(c=>c.onchange=()=>{S.c[c.dataset.i]=c.checked;prog();save()});prog();
+
+/* Campos del generador y FODA */
+const IDS=["nombre","tema","dest","obj","act"];
+IDS.forEach(id=>{$(id).value=S.g[id]||"";$(id).oninput=()=>{S.g[id]=$(id).value;save()}});
+Q("[data-k]").forEach(t=>{t.value=S.f[t.dataset.k]||"";t.oninput=()=>{S.f[t.dataset.k]=t.value;save()}});
+$("nint").value=S.n;$("nint").oninput=()=>{S.n=$("nint").value;tot();save()};
+
+/* Presupuesto */
+function tot(){const s=S.p.reduce((a,r)=>a+Number(r.m||0),0);$("ptot").textContent="Total: "+fm(s);const n=Number(S.n);$("pper").textContent=n>0?"Por integrante: "+fm(Math.ceil(s/n)):""}
+function rp(){$("pbody").innerHTML=S.p.map((r,i)=>`<tr><td><input value="${esc(r.c)}" data-l="p" data-i="${i}" data-f="c"></td><td><input type="number" min="0" value="${r.m}" data-l="p" data-i="${i}" data-f="m"></td><td><button class="x" data-d="p" data-i="${i}" aria-label="Quitar">✕</button></td></tr>`).join("");tot()}
+/* Cronograma */
+const EST2=["Pendiente","En curso","Listo"];
+function rt(){$("tbody2").innerHTML=S.t.map((r,i)=>`<tr><td><input value="${esc(r.a)}" data-l="t" data-i="${i}" data-f="a"></td><td><input value="${esc(r.r)}" data-l="t" data-i="${i}" data-f="r"></td><td><input type="date" value="${r.d}" data-l="t" data-i="${i}" data-f="d"></td><td><select data-l="t" data-i="${i}" data-f="e">${EST2.map(e=>`<option ${e==r.e?"selected":""}>${e}</option>`).join("")}</select></td><td><button class="x" data-d="t" data-i="${i}" aria-label="Quitar">✕</button></td></tr>`).join("");tt()}
+const tt=()=>{$("ttot").textContent=S.t.length?`${S.t.filter(r=>r.e=="Listo").length} de ${S.t.length} actividades listas`:"Aún no agregaste actividades."};
+document.addEventListener("input",e=>{const d=e.target.dataset;if(d.l){S[d.l][d.i][d.f]=e.target.value;d.l=="p"?tot():tt();save()}});
+document.addEventListener("change",e=>{const d=e.target.dataset;if(d.l=="t"){S.t[d.i].e=e.target.value;tt();save()}});
+document.addEventListener("click",e=>{const d=e.target.dataset.d;if(d){S[d].splice(e.target.dataset.i,1);d=="p"?rp():rt();save()}});
+$("addp").onclick=()=>{S.p.push({c:"",m:0});rp();save()};
+$("addt").onclick=()=>{S.t.push({a:"",r:"",d:"",e:"Pendiente"});rt();save()};
+rp();rt();
+
+/* Generador, copiar e imprimir */
+let TXT="";
+$("gen").onclick=()=>{
+const g=S.g,r=$("res");r.style.display="block";
+if(IDS.some(k=>!(g[k]||"").trim())){r.innerHTML="<h4>⚠️ Falta información</h4><p>Completa todos los campos para generar la estructura.</p>";$("exp").style.display="none";return}
+const F=[["f","Fortalezas"],["d","Debilidades"],["o","Oportunidades"],["a","Amenazas"]].filter(x=>(S.f[x[0]]||"").trim()).map(x=>x[1]+": "+S.f[x[0]].trim()).join("\n");
+const P=S.p.filter(x=>x.c||x.m).map(x=>`${x.c||"Gasto"}: ${fm(x.m)}`).concat("Total: "+fm(S.p.reduce((a,x)=>a+Number(x.m||0),0))).join("\n");
+const C=S.t.filter(x=>x.a).map(x=>`${x.a} — ${x.r||"sin responsable"}${x.d?" — "+x.d:""} (${x.e})`).join("\n");
+const sec=[["Nombre",g.nombre],["Tema",g.tema],["Problema","Se identifica la necesidad de organizar adecuadamente las actividades relacionadas con "+g.tema+"."],["Justificación","Este proyecto busca mejorar la organización, participación y comunicación entre los participantes."],["Objetivo general",g.obj],["Destinatarios",g.dest],["Actividades",g.act]];
+if(F)sec.push(["Análisis FODA",F]);sec.push(["Presupuesto",P]);if(C)sec.push(["Cronograma",C]);
+sec.push(["Evaluación","Se evaluará el cumplimiento de los objetivos, la participación de los integrantes y los resultados obtenidos."]);
+r.innerHTML="<h4>📄 Estructura generada</h4>"+sec.map(s=>`<p><strong>${s[0]}:</strong><br>${esc(s[1]).replace(/\n/g,"<br>")}</p>`).join("");
+TXT=sec.map(s=>s[0].toUpperCase()+"\n"+s[1]).join("\n\n");$("exp").style.display="flex";r.scrollIntoView({behavior:"smooth",block:"center"})};
+const say=t=>{$("msg").textContent=t;setTimeout(()=>$("msg").textContent="",2500)};
+$("copy").onclick=async()=>{try{await navigator.clipboard.writeText(TXT);say("¡Copiado!")}catch(e){const s=getSelection(),g=document.createRange();g.selectNodeContents($("res"));s.removeAllRanges();s.addRange(g);say("Seleccionado: usa Ctrl+C")}};
+$("print").onclick=()=>window.print();
+
+/* Tema y volver arriba */
+$("theme").onclick=()=>{const d=document.documentElement,dark=d.dataset.theme?d.dataset.theme=="dark":matchMedia("(prefers-color-scheme: dark)").matches;d.dataset.theme=dark?"light":"dark"};
+onscroll=()=>$("top").style.display=scrollY>600?"block":"none";
+$("top").onclick=()=>scrollTo({top:0,behavior:"smooth"});
+</script>
+</body>
+</html>
